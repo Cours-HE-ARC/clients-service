@@ -1,8 +1,23 @@
 package ch.hearc.clientsservice.domaine;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="client") //pas obligatoire
 public class Client {
 	
+	
+	Client(){}
+	
+	@Column
 	private String nom;
+	
 	@Override
 	public String toString() {
 		return "Client [nom=" + nom + ", prenom=" + prenom + ", identifiant=" + identifiant + "]";
@@ -33,7 +48,18 @@ public class Client {
 		return true;
 	}
 
+	@Column
 	private String prenom;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long Id;
+	
+	public Long getId() {
+		return Id;
+	}
+
+	@Embedded
 	private IdentifiantClient identifiant;
 
 	private Client(String nom, String prenom) {

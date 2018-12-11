@@ -2,7 +2,11 @@ package ch.hearc.clientsservice.domaine;
 
 import java.util.UUID;
 
+import javax.persistence.Column;
+
 public class IdentifiantClient {
+	
+	IdentifiantClient() {}
 	
 	private String numero;
 	
