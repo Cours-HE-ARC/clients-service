@@ -1,6 +1,8 @@
 package ch.hearc.clientsservice.application.service.impl;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -23,7 +25,36 @@ public class ClientServiceImpl implements ClientService{
 	ClientH2Repository repository;
 	
 	@Autowired
+	ClientH2Repository clientRepository;
+	
+	@Autowired
 	CompteClientH2Repository2 compteRepository;
+	
+	@Override
+	@Transactional
+	public List<Client> getAllClients() {
+		
+		List<Client> clients = new ArrayList<>();
+		
+		clientRepository.findAll().forEach(clients::add);
+		
+		return clients;
+		
+		
+	}
+	
+	@Override
+	@Transactional
+	public List<CompteClient> getAllCompteClients() {
+		
+		List<CompteClient> compteClients = new ArrayList<>();
+		
+		compteRepository.findAll().forEach(compteClients::add);
+		
+		return compteClients;
+		
+		
+	}
 	
 	@Override
 	@Transactional

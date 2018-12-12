@@ -1,6 +1,7 @@
 package ch.hearc.clientsservice.application.service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,9 @@ public interface ClientService {
 	void debite(DebiteClientCommand debiteClientCommand);
 
 	void credite(CrediteClientCommand crediteClientCommand);
+
+	List<Client> getAllClients();
+
+	List<CompteClient> getAllCompteClients();
 
 }
