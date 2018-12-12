@@ -1,6 +1,6 @@
 # configuration de base de l'application
-server:
-  port: 9100
+# server:
+#  port: 9100
   
 # configuration de h2
 spring:
